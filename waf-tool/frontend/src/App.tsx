@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Container,
   Typography,
@@ -311,6 +311,29 @@ const App: React.FC = () => {
     }
   };
 
+  const fetchData = useCallback(async () => {
+    try {
+      const [statsRes, blockedRes, logsRes] = await Promise.all([
+        fetch('http://localhost:3003/api/waf/stats'),
+        fetch('http://localhost:3003/api/waf/blocked-ips'),
+        fetch('http://localhost:3003/api/waf/attack-logs')
+      ]);
+
+      const statsData = await statsRes.json();
+      const blockedData = await blockedRes.json();
+      const logsData = await logsRes.json();
+
+      setStats(statsData);
+      setBlockedIPs(blockedData);
+      setAttackLogs(logsData);
+    } catch (error) {
+      console.error('Veri yükleme hatası:', error);
+      setSnackbar({ open: true, message: t('dataLoadError'), severity: 'error' });
+    } finally {
+      setLoading(false);
+    }
+  }, [t]);
+
   useEffect(() => {
     // WebSocket bağlantısı kur
     const newSocket = io('http://localhost:3003');
@@ -355,30 +378,7 @@ const App: React.FC = () => {
     return () => {
       newSocket.close();
     };
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const [statsRes, blockedRes, logsRes] = await Promise.all([
-        fetch('http://localhost:3003/api/waf/stats'),
-        fetch('http://localhost:3003/api/waf/blocked-ips'),
-        fetch('http://localhost:3003/api/waf/attack-logs')
-      ]);
-
-      const statsData = await statsRes.json();
-      const blockedData = await blockedRes.json();
-      const logsData = await logsRes.json();
-
-      setStats(statsData);
-      setBlockedIPs(blockedData);
-      setAttackLogs(logsData);
-    } catch (error) {
-      console.error('Veri yükleme hatası:', error);
-      setSnackbar({ open: true, message: t('dataLoadError'), severity: 'error' });
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [fetchData]);
 
   // Otomatik veri yenileme (30 saniyede bir)
   useEffect(() => {
@@ -387,7 +387,7 @@ const App: React.FC = () => {
     }, 30000); // 30 saniye
 
     return () => clearInterval(interval);
-  }, []);
+  }, [fetchData]);
 
   const handleUnblockIP = async (ip: string) => {
     try {
