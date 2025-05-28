@@ -277,7 +277,7 @@ const App: React.FC = () => {
   const [language, setLanguage] = useState<'tr' | 'en'>('tr');
 
   // Çeviri fonksiyonu
-  const t = (key: string, params?: Record<string, string>) => {
+  const t = useCallback((key: string, params?: Record<string, string>) => {
     const keys = key.split('.');
     let value: any = translations[language];
     
@@ -292,7 +292,7 @@ const App: React.FC = () => {
     }
     
     return value || key;
-  };
+  }, [language]);
 
   const handleLanguageChange = (event: React.MouseEvent<HTMLElement>, newLanguage: 'tr' | 'en' | null) => {
     if (newLanguage !== null) {
@@ -398,7 +398,8 @@ const App: React.FC = () => {
       newSocket.removeAllListeners();
       newSocket.close();
     };
-  }, [fetchData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Otomatik veri yenileme (30 saniyede bir)
   useEffect(() => {
