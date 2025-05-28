@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  titanwaf-backend:
+    build: 
+      context: ./waf-tool/backend
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=production
+      - PORT=3003
+      - LOG_LEVEL=info
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - ./whitelist.txt:/app/whitelist.txt
+      - ./blacklist.txt:/app/blacklist.txt
+      - ./temp-blacklist.txt:/app/temp-blacklist.txt
+    restart: unless-stopped
+    networks:
+      - titanwaf-network
+
+  titanwaf-frontend:
+    build:
+      context: ./waf-tool/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:3003
+      - REACT_APP_WEBSOCKET_URL=ws://localhost:3003
+      - REACT_APP_LANGUAGE=en
+    depends_on:
+      - titanwaf-backend
+    restart: unless-stopped
+    networks:
+      - titanwaf-network
+
+networks:
+  titanwaf-network:
+    driver: bridge
+
+volumes:
+  logs:
+  config: 

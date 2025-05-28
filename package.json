@@ -1,0 +1,54 @@
+{
+  "name": "titanwaf",
+  "version": "1.0.0",
+  "description": "TitanWAF - Advanced Web Application Firewall with Real-time Monitoring",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "cd waf-tool/backend && npm install && cd ../frontend && npm install && cd ../..",
+    "dev": "concurrently \"cd waf-tool/backend && npm run dev\" \"cd waf-tool/frontend && npm start\"",
+    "build": "cd waf-tool/frontend && npm run build",
+    "start": "cd waf-tool/backend && npm start",
+    "test": "cd waf-tool/backend && npm test && cd ../frontend && npm test",
+    "clean": "powershell -Command \"Remove-Item -Recurse -Force waf-tool/backend/node_modules, waf-tool/frontend/node_modules, node_modules -ErrorAction SilentlyContinue\"",
+    "clean-logs": "powershell -Command \"Remove-Item -Force *.txt, *.log -ErrorAction SilentlyContinue\"",
+    "fresh-install": "npm run clean && npm run install-all",
+    "postinstall": "npm run install-all",
+    "check-updates": "npm outdated",
+    "update": "npm update && cd waf-tool/backend && npm update && cd ../frontend && npm update",
+    "health-check": "curl -f http://localhost:3003/api/waf/health || echo 'Health check failed'",
+    "security-test": "curl -X POST http://localhost:3003/login -H \"Content-Type: application/json\" -d '{\"username\":\"admin\\' OR 1=1 --\",\"password\":\"test\"}'"
+  },
+  "keywords": [
+    "waf",
+    "web-application-firewall",
+    "security",
+    "ddos-protection",
+    "sql-injection",
+    "xss-protection",
+    "cybersecurity",
+    "nodejs",
+    "typescript",
+    "react",
+    "real-time-monitoring"
+  ],
+  "author": "TitanWAF Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/TitanWAF.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/TitanWAF/issues"
+  },
+  "homepage": "https://github.com/yourusername/TitanWAF#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.9.0"
+  }
+}

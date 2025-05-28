@@ -1,0 +1,64 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#backgroundGradient)" stroke="url(#borderGradient)" stroke-width="3"/>
+  
+  <!-- Shield Shape -->
+  <path d="M100 20 L160 50 L160 120 Q160 140 140 155 L100 180 L60 155 Q40 140 40 120 L40 50 Z" 
+        fill="url(#shieldGradient)" stroke="#1a237e" stroke-width="2"/>
+  
+  <!-- Inner Shield -->
+  <path d="M100 35 L145 55 L145 110 Q145 125 130 135 L100 155 L70 135 Q55 125 55 110 L55 55 Z" 
+        fill="url(#innerShieldGradient)" stroke="#3949ab" stroke-width="1"/>
+  
+  <!-- TITAN Symbol - Stylized T -->
+  <g transform="translate(100, 100)">
+    <!-- Main T Structure -->
+    <rect x="-25" y="-35" width="50" height="8" fill="#ffffff" rx="4"/>
+    <rect x="-4" y="-35" width="8" height="50" fill="#ffffff" rx="4"/>
+    
+    <!-- Decorative Elements -->
+    <circle cx="-15" cy="-31" r="3" fill="#ffd700"/>
+    <circle cx="15" cy="-31" r="3" fill="#ffd700"/>
+    <circle cx="0" cy="20" r="4" fill="#ffd700"/>
+    
+    <!-- Power Lines -->
+    <path d="M-20 -15 L-10 -5 M20 -15 L10 -5" stroke="#00e676" stroke-width="2" stroke-linecap="round"/>
+    <path d="M-15 5 L-5 15 M15 5 L5 15" stroke="#00e676" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Outer Ring -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#ringGradient)" stroke-width="2" stroke-dasharray="10,5"/>
+  
+  <!-- Text -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1a237e">TitanWAF</text>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1976d2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1565c0;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3f51b5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#303f9f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a237e;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="innerShieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5c6bc0;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3949ab;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e676;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00c853;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1b5e20;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg> 
