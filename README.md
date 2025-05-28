@@ -60,15 +60,27 @@
 
 ## 🚀 Quick Installation
 
-### Automatic Installation (Recommended)
+### Recommended Installation
 ```bash
 # Clone the repository
 git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
 
-# Install all dependencies and start with one command
-npm run fresh-install
+# Install all dependencies
+npm install
+
+# Start the application
 npm run dev
+```
+
+### Alternative Installation Methods
+```bash
+# If you encounter issues with concurrently on Windows:
+npm run dev:windows    # Opens separate terminal windows
+
+# Or run services separately:
+npm run dev:backend    # Backend only (port 3003)
+npm run dev:frontend   # Frontend only (port 3000)
 ```
 
 ### Platform-Specific Installation Instructions
@@ -85,7 +97,17 @@ choco install nodejs
 # Clone the project
 git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
-npm run fresh-install
+
+# Install dependencies
+npm install
+
+# Start the application
+npm run dev
+
+# Alternative commands if needed:
+# npm run dev:windows    # Opens separate terminal windows
+# npm run dev:backend    # Run only backend
+# npm run dev:frontend   # Run only frontend
 ```
 
 #### macOS
@@ -101,7 +123,12 @@ nvm use 20
 # Clone the project
 git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
-npm run fresh-install
+
+# Install dependencies
+npm install
+
+# Start the application
+npm run dev
 ```
 
 #### Ubuntu/Debian
@@ -116,7 +143,12 @@ sudo apt-get install -y git build-essential
 # Clone the project
 git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
-npm run fresh-install
+
+# Install dependencies
+npm install
+
+# Start the application
+npm run dev
 ```
 
 #### CentOS/RHEL/Fedora
@@ -129,7 +161,12 @@ sudo yum install nodejs npm git
 # Clone the project
 git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
-npm run fresh-install
+
+# Install dependencies
+npm install
+
+# Start the application
+npm run dev
 ```
 
 ## 🐳 Docker Installation
@@ -346,10 +383,14 @@ npm run dev
 ## 📞 Support and Contact
 
 ### Technical Support
-- **GitHub Issues**: [Issues page](https://github.com/kadirsenturk/TitanWAF/issues)
-- **Documentation**: [Wiki page](https://github.com/kadirsenturk/TitanWAF/wiki)
+- **GitHub Issues**: [Report Issues](https://github.com/kadirsenturk/TitanWAF/issues)
+- **Documentation**: [Wiki Documentation](https://github.com/kadirsenturk/TitanWAF/wiki)
 - **Email**: kadirsenturk@proton.me
 
+### Community
+- **Discussions**: [GitHub Discussions](https://github.com/kadirsenturk/TitanWAF/discussions)
+- **Feature Requests**: [Request Features](https://github.com/kadirsenturk/TitanWAF/issues/new?template=feature_request.md)
+- **Bug Reports**: [Report Bugs](https://github.com/kadirsenturk/TitanWAF/issues/new?template=bug_report.md)
 
 ## 🤝 Contributing
 
