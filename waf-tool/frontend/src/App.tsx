@@ -336,8 +336,26 @@ const App: React.FC = () => {
 
   useEffect(() => {
     // WebSocket bağlantısı kur
-    const newSocket = io('http://localhost:3003');
+    const newSocket = io('http://localhost:3003', {
+      // Reconnection ayarları
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionAttempts: 5,
+      timeout: 20000,
+      // Development modunda daha az agresif reconnection
+      forceNew: false
+    });
+    
     setSocket(newSocket);
+
+    // Bağlantı durumu logları
+    newSocket.on('connect', () => {
+      console.log('🔗 WAF WebSocket connected:', newSocket.id);
+    });
+
+    newSocket.on('disconnect', (reason) => {
+      console.log('🔌 WAF WebSocket disconnected:', reason);
+    });
 
     // Gerçek zamanlı saldırı dinleyicisi
     newSocket.on('newAttack', (attackData: RealTimeAttack) => {
@@ -376,6 +394,8 @@ const App: React.FC = () => {
     fetchData();
 
     return () => {
+      console.log('🧹 Cleaning up WebSocket connection');
+      newSocket.removeAllListeners();
       newSocket.close();
     };
   }, [fetchData]);
