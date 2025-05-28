@@ -9,8 +9,8 @@
     "build": "cd waf-tool/frontend && npm run build",
     "start": "cd waf-tool/backend && npm start",
     "test": "cd waf-tool/backend && npm test && cd ../frontend && npm test",
-    "clean": "powershell -Command \"Remove-Item -Recurse -Force waf-tool/backend/node_modules, waf-tool/frontend/node_modules, node_modules -ErrorAction SilentlyContinue\"",
-    "clean-logs": "powershell -Command \"Remove-Item -Force *.txt, *.log -ErrorAction SilentlyContinue\"",
+    "clean": "rimraf waf-tool/backend/node_modules waf-tool/frontend/node_modules node_modules",
+    "clean-logs": "rimraf *.txt *.log",
     "fresh-install": "npm run clean && npm run install-all",
     "postinstall": "npm run install-all",
     "check-updates": "npm outdated",
@@ -46,7 +46,8 @@
     "npm": ">=8.0.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.5"
   },
   "dependencies": {
     "axios": "^1.9.0"
