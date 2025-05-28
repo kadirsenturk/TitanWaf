@@ -348,12 +348,8 @@ npm run dev
 ### Technical Support
 - **GitHub Issues**: [Issues page](https://github.com/yourusername/TitanWAF/issues)
 - **Documentation**: [Wiki page](https://github.com/yourusername/TitanWAF/wiki)
-- **Email**: support@titanwaf.com
+- **Email**: kadirsenturk@proton.me
 
-### Community
-- **Discord**: [TitanWAF Community](https://discord.gg/titanwaf)
-- **Telegram**: [@TitanWAF](https://t.me/titanwaf)
-- **Reddit**: [r/TitanWAF](https://reddit.com/r/titanwaf)
 
 ## 🤝 Contributing
 
