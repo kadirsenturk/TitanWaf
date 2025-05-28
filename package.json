@@ -6,6 +6,9 @@
   "scripts": {
     "install-all": "cd waf-tool/backend && npm install && cd ../frontend && npm install && cd ../..",
     "dev": "concurrently \"cd waf-tool/backend && npm run dev\" \"cd waf-tool/frontend && npm start\"",
+    "dev:backend": "cd waf-tool/backend && npm run dev",
+    "dev:frontend": "cd waf-tool/frontend && npm start",
+    "dev:windows": "start cmd /k \"cd waf-tool/backend && npm run dev\" && start cmd /k \"cd waf-tool/frontend && npm start\"",
     "build": "cd waf-tool/frontend && npm run build",
     "start": "cd waf-tool/backend && npm start",
     "test": "cd waf-tool/backend && npm test && cd ../frontend && npm test",
