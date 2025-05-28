@@ -63,7 +63,7 @@
 ### Automatic Installation (Recommended)
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/TitanWAF.git
+git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
 
 # Install all dependencies and start with one command
@@ -83,7 +83,7 @@ choco install nodejs
 # Download from https://nodejs.org/en/download/
 
 # Clone the project
-git clone https://github.com/yourusername/TitanWAF.git
+git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
 npm run fresh-install
 ```
@@ -99,7 +99,7 @@ nvm install 20
 nvm use 20
 
 # Clone the project
-git clone https://github.com/yourusername/TitanWAF.git
+git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
 npm run fresh-install
 ```
@@ -114,7 +114,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y git build-essential
 
 # Clone the project
-git clone https://github.com/yourusername/TitanWAF.git
+git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
 npm run fresh-install
 ```
@@ -127,7 +127,7 @@ sudo dnf install nodejs npm git
 sudo yum install nodejs npm git
 
 # Clone the project
-git clone https://github.com/yourusername/TitanWAF.git
+git clone https://github.com/kadirsenturk/TitanWAF.git
 cd TitanWAF
 npm run fresh-install
 ```
