@@ -9,9 +9,12 @@
     "build": "cd waf-tool/frontend && npm run build",
     "start": "cd waf-tool/backend && npm start",
     "test": "cd waf-tool/backend && npm test && cd ../frontend && npm test",
-    "clean": "rimraf waf-tool/backend/node_modules waf-tool/frontend/node_modules node_modules",
-    "clean-logs": "rimraf *.txt *.log",
-    "fresh-install": "npm run clean && npm run install-all",
+    "clean": "npm run clean:backend && npm run clean:frontend && npm run clean:root",
+    "clean:backend": "cd waf-tool/backend && (if exist node_modules rmdir /s /q node_modules)",
+    "clean:frontend": "cd waf-tool/frontend && (if exist node_modules rmdir /s /q node_modules)",
+    "clean:root": "if exist node_modules rmdir /s /q node_modules",
+    "clean-logs": "del /q *.txt *.log 2>nul || echo No log files to clean",
+    "fresh-install": "npm run install-all",
     "postinstall": "npm run install-all",
     "check-updates": "npm outdated",
     "update": "npm update && cd waf-tool/backend && npm update && cd ../frontend && npm update",
@@ -46,8 +49,7 @@
     "npm": ">=8.0.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "rimraf": "^5.0.5"
+    "concurrently": "^8.2.2"
   },
   "dependencies": {
     "axios": "^1.9.0"
