@@ -346,8 +346,8 @@ npm run dev
 ## 📞 Support and Contact
 
 ### Technical Support
-- **GitHub Issues**: [Issues page](https://github.com/yourusername/TitanWAF/issues)
-- **Documentation**: [Wiki page](https://github.com/yourusername/TitanWAF/wiki)
+- **GitHub Issues**: [Issues page](https://github.com/kadirsenturk/TitanWAF/issues)
+- **Documentation**: [Wiki page](https://github.com/kadirsenturk/TitanWAF/wiki)
 - **Email**: kadirsenturk@proton.me
 
 
